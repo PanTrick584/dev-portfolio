@@ -16,7 +16,6 @@ function App() {
             <p>Jestem frontend developerem z pasją do programowania</p>
         </section>
         <StickySection />
-        <StickySectionImages />
         <section className='section section-normal'>
             <p></p>
 
@@ -29,6 +28,8 @@ function App() {
             <p></p>
 
         </section>
+                {/* <StickySectionImages /> */}
+
         <p>pracowałem nad projektami stron jak i projektowaniu ich od początku w CMS WordPress</p>
         <p>pracowałem wtedy w JS, PHP, scss, webpack WordPress</p>
         <p>Projektem z którego jestem szczególnie dumny z tamtego okresu to Zamek Pszczyna który zaprojektowałem i zaprogramowałem w całości</p>
