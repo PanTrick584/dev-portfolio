@@ -28,7 +28,7 @@ function App() {
             <p></p>
 
         </section>
-                {/* <StickySectionImages /> */}
+                <StickySectionImages />
 
         <p>pracowałem nad projektami stron jak i projektowaniu ich od początku w CMS WordPress</p>
         <p>pracowałem wtedy w JS, PHP, scss, webpack WordPress</p>

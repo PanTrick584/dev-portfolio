@@ -1,4 +1,3 @@
-// src/components/StickySection.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import './styles/sticky-section.scss';
 
