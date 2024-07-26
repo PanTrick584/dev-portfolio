@@ -12,11 +12,12 @@ const contentList: ContentItem[] = [
     { id: 3, text: 'Powinny się fajnie wyświetlać' },
     { id: 4, text: 'dotąd jest ok' },
     { id: 5, text: 'i aż do końca!' },
-    { id: 6, text: 'i aż do końca!' },
+    // { id: 6, text: 'i aż do końca!' },
 ];
 
 const StickySection: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [show, setShow] = useState('show');
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -43,7 +44,10 @@ const StickySection: React.FC = () => {
                 // console.log(sectionTop);
                 // console.log(sectionHeight);
                 // console.log(scrollRatio);
-                
+                setShow("");
+                        // setShow("slide-in")
+                setTimeout(() => setShow("show"), 100);
+                // setShow("show");
                 setCurrentIndex(newIndex);
                 //set up logic to force stop at the beggining of sticky section on mobile || EXAMPLE CODE
                 // <div className={isModalOpen ? 'disable-touch-scroll' : ''}> for this css option
@@ -102,10 +106,11 @@ const StickySection: React.FC = () => {
     return (
         <div
             className={`sticky-section`}
+            style={{height: `${contentList.length * 2}00vh`}}
             ref={sectionRef}
         >
             <div className="content">
-                <p>{contentList[currentIndex].text}</p>
+                <p className={`content-text ${show}`}>{contentList[currentIndex].text}</p>
             </div>
         </div>
     );

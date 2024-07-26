@@ -10,8 +10,12 @@ function App() {
     return (
     <div className="container" onScroll={() => console.log('scrolling body')    }>
         <Header />
-        <section className='section section-normal'></section>
-        <section className='section section-sticky'>Jestem frontend developerem z pasją do programowania</section>
+        <section className='section section-normal'>
+            <div className="section-box">
+                <h1 className="header">Hi! I'm <br />Patryk <br /> Chodacki</h1>
+            </div>
+        </section>
+        <section className='section section-normal'>Jestem frontend developerem z pasją do programowania</section>
         <section className='section section-normal'>
             <p>Jestem frontend developerem z pasją do programowania</p>
         </section>

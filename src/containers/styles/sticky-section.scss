@@ -1,5 +1,5 @@
 .sticky-section {
-    height: 500vh;
+    // height: 500vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -28,6 +28,10 @@
     background-repeat: no-repeat;
     background-size: contain;
 
+    &-text {
+        animation: show .4s forwards;
+    }
+
     &-box {
         width: 100vw;
         height: 100vh;
@@ -37,4 +41,14 @@
 .content p {
     margin-top: 10px;
     font-size: 1.5rem;
+}
+
+@keyframes show {
+    from {
+        visibility: hidden;
+    }
+
+    to {
+        visibility: visible;
+    }
 }
