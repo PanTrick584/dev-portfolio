@@ -6,16 +6,11 @@ interface ContentItem {
     text: string;
 }
 
-const contentList: ContentItem[] = [
-    { id: 1, text: 'Hejka' },
-    { id: 2, text: 'Te sekcje' },
-    { id: 3, text: 'Powinny się fajnie wyświetlać' },
-    { id: 4, text: 'dotąd jest ok' },
-    { id: 5, text: 'i aż do końca!' },
-    { id: 6, text: 'i aż do końca!' },
-];
+type TextsProps = {
+    texts: ContentItem[]
+}
 
-const StickySection: React.FC = () => {
+const StickySection: React.FC<TextsProps> = ({texts}) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -39,7 +34,7 @@ const StickySection: React.FC = () => {
                 const sectionTop = sectionRef.current.getBoundingClientRect().top;
                 const sectionHeight = sectionRef.current.clientHeight;
                 const scrollRatio = Math.min(Math.max(-sectionTop / sectionHeight, 0), 1);
-                const newIndex = Math.min(Math.floor(scrollRatio * contentList.length), contentList.length -1);
+                const newIndex = Math.min(Math.floor(scrollRatio * texts.length), texts.length -1);
                 // console.log(sectionTop);
                 // console.log(sectionHeight);
                 // console.log(scrollRatio);
@@ -105,7 +100,7 @@ const StickySection: React.FC = () => {
             ref={sectionRef}
         >
             <div className="content">
-                <p>{contentList[currentIndex].text}</p>
+                <p>{texts[currentIndex].text}</p>
             </div>
         </div>
     );

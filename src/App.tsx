@@ -5,23 +5,35 @@ import Header from './containers/Header'
 // import './containers/StickySection';
 import StickySection from './containers/StickySection';
 import StickySectionImages from './containers/StickySectionImages';
+import Section from './containers/Section';
+
+interface ContentItem {
+    id: number;
+    text: string;
+}
+
+const contentList: ContentItem[] = [
+    { id: 1, text: 'Jestem frontend developerem z pasją do programowania' },
+    { id: 2, text: 'pisałem swoje pierwsze programy i technologie wokół samego programowania w JS związanego z WEB' },
+    { id: 3, text: 'pracowałem nad projektami stron jak i projektowaniu ich od początku w CMS WordPress' },
+    { id: 4, text: 'dotąd jest ok' },
+    { id: 5, text: 'i aż do końca!' },
+    { id: 6, text: 'i aż do końca!' },
+];
 
 function App() {
     return (
     <div className="container" onScroll={() => console.log('scrolling body')    }>
         <Header />
-        <section className='section section-normal'></section>
-        <section className='section section-sticky'>Jestem frontend developerem z pasją do programowania</section>
-        <section className='section section-normal'>
-            <p>Jestem frontend developerem z pasją do programowania</p>
-        </section>
-        <StickySection />
+        <Section text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        
+        <StickySection texts={contentList}/>
         <section className='section section-normal'>
             <p></p>
 
         </section>
         <section className='section section-normal'>
-            <p>pisałem swoje pierwsze programy i technologie wokół samego programowania w JS związanego z WEB</p>
+            <p></p>
 
         </section>
         <section className='section section-normal'>
@@ -30,7 +42,7 @@ function App() {
         </section>
                 <StickySectionImages />
 
-        <p>pracowałem nad projektami stron jak i projektowaniu ich od początku w CMS WordPress</p>
+        <p></p>
         <p>pracowałem wtedy w JS, PHP, scss, webpack WordPress</p>
         <p>Projektem z którego jestem szczególnie dumny z tamtego okresu to Zamek Pszczyna który zaprojektowałem i zaprogramowałem w całości</p>
         <p>Po pewnym czasie dostałem szansę współpracy z developerami pracującymi nad większymi projektami / aplikacjami pisanymi w React</p>
