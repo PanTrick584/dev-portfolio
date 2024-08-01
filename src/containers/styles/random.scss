@@ -1,0 +1,13 @@
+.section-random {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    .key {
+        position: absolute;
+        min-width: 40px;
+        width: max-content;
+        height: 40px;
+        border: 1px solid white;
+    }
+}

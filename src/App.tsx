@@ -6,6 +6,8 @@ import Header from './containers/Header'
 import StickySection from './containers/StickySection';
 import StickySectionImages from './containers/StickySectionImages';
 import Section from './containers/Section';
+import StickySectionSideroll from './containers/StickySectionSideroll';
+import RandomKeys from './containers/RandomKeys';
 
 interface ContentItem {
     id: number;
@@ -21,28 +23,37 @@ const contentList: ContentItem[] = [
     { id: 6, text: 'i aż do końca!' },
 ];
 
+const siderollList: ContentItem[] = [
+    { id: 1, text: 'Jestem frontend developerem z pasją do programowania' },
+    { id: 2, text: 'pisałem swoje pierwsze programy i technologie wokół samego programowania w JS związanego z WEB' },
+    { id: 3, text: 'pracowałem nad projektami stron jak i projektowaniu ich od początku w CMS WordPress' },
+    { id: 4, text: 'dotąd jest ok' },
+    { id: 5, text: 'i aż do końca!' },
+    { id: 6, text: 'i aż do końca!' },
+];
+
 function App() {
     return (
     <div className="container" onScroll={() => console.log('scrolling body')    }>
         <Header />
-        <Section text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
-        
-        <StickySection texts={contentList}/>
-        <section className='section section-normal'>
-            <p></p>
-
-        </section>
-        <section className='section section-normal'>
-            <p></p>
-
-        </section>
-        <section className='section section-normal'>
-            <p></p>
-
-        </section>
-                <StickySectionImages />
-
-        <p></p>
+        <Section
+            text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        <StickySection
+            texts={contentList}/>
+        <Section
+            text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        <StickySectionSideroll
+            texts={siderollList}/>
+        <Section
+            text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        <Section
+            text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        <StickySectionImages />
+        <Section
+            text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        <Section
+            text={'pracowałem wtedy w JS, PHP, scss, webpack WordPress'} />
+        <RandomKeys />
         <p>pracowałem wtedy w JS, PHP, scss, webpack WordPress</p>
         <p>Projektem z którego jestem szczególnie dumny z tamtego okresu to Zamek Pszczyna który zaprojektowałem i zaprogramowałem w całości</p>
         <p>Po pewnym czasie dostałem szansę współpracy z developerami pracującymi nad większymi projektami / aplikacjami pisanymi w React</p>

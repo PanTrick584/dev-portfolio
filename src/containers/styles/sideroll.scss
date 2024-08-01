@@ -1,0 +1,22 @@
+.sideroll-section {
+    overflow-x: clip;
+
+    .content {
+        width: max-content;
+        display: flex;
+        
+        .content-item {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                font-size: 48px;
+                max-width: 440px;
+                text-align: left;
+            }
+        }
+    }
+}

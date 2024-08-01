@@ -71,10 +71,10 @@ const StickySectionImages: React.FC = () => {
             style={{height: `${colors.length * 2}00vh`}}
             ref={sectionCarouselRef}
         >
-            <div className="content" >
+            <div className="content"  style={style}>
                 <div
                     className={`content-box ${slideIn}`}
-                    style={style}>
+                   >
                     <p>HELLO!!!!</p>
                 </div>
             </div>
