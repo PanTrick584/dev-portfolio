@@ -12,6 +12,7 @@ type TextsProps = {
 
 const StickySection: React.FC<TextsProps> = ({texts}) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [show, setShow] = useState('show');
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -38,7 +39,10 @@ const StickySection: React.FC<TextsProps> = ({texts}) => {
                 // console.log(sectionTop);
                 // console.log(sectionHeight);
                 // console.log(scrollRatio);
-                
+                setShow("");
+                        // setShow("slide-in")
+                setTimeout(() => setShow("show"), 100);
+                // setShow("show");
                 setCurrentIndex(newIndex);
                 //set up logic to force stop at the beggining of sticky section on mobile || EXAMPLE CODE
                 // <div className={isModalOpen ? 'disable-touch-scroll' : ''}> for this css option
@@ -97,6 +101,7 @@ const StickySection: React.FC<TextsProps> = ({texts}) => {
     return (
         <div
             className={`sticky-section`}
+            style={{height: `${contentList.length * 2}00vh`}}
             ref={sectionRef}
         >
             <div className="content">
