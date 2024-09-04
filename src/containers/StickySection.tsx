@@ -101,7 +101,7 @@ const StickySection: React.FC<TextsProps> = ({texts}) => {
     return (
         <div
             className={`sticky-section`}
-            style={{height: `${contentList.length * 2}00vh`}}
+            style={{height: `${texts.length * 2}00vh`}}
             ref={sectionRef}
         >
             <div className="content">

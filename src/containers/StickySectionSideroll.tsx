@@ -37,9 +37,14 @@ const StickySectionSideroll: React.FC<TextsProps> = ({texts}) => {
             style={{height: `${texts.length * 2}00vh`}}
             ref={sectionRef}
         >
+
             <div
                 className="content"
                 style={{transform: `translateX(-${currentPosition}px)`}}>
+                                <div
+                className="content-background"
+                style={{transform: `translateX(${currentPosition}px)`}}>
+            </div>
                     {texts.map((item) => {
                         return(
                             <div className="content-item">
