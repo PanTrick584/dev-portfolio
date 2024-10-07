@@ -1,17 +1,14 @@
 .sticky-section {
-    // height: 500vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    background-color: blue;
     transition: position 0.5s ease;
     width: 100%;
 
-
     .content {
         &:first-of-type {
-            background-image: url('./portfolio-img-1.jpg');
-    
+            background-image: url('./portfolio-img-3.png');
+            background-size: cover;
         }
     }
 }
@@ -23,12 +20,9 @@
 .content {
     position: sticky;
     top: 0;
-    // bottom: 100vh;
     text-align: center;
-    transition: opacity 0.5s ease;
     height: 100vh;
     width: 100%;
-    // width: max-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,9 +30,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-
-   
+    // background-color: $colorSecondary;
 
     &-text {
         animation: show .4s forwards;
@@ -50,17 +42,16 @@
     }
 }
 
-.content p {
+.content-text {
     margin-top: 10px;
-    font-size: 1.5rem;
+    font-size: 48px;
+    line-height: .9;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    opacity: 0;
+    transform: translateY(-40px);
 }
 
-@keyframes show {
-    from {
-        visibility: hidden;
-    }
-
-    to {
-        visibility: visible;
-    }
-}
+.content-text.show {
+    opacity: 1;
+    transform: translateY(0);
+  }

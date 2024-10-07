@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 * {
     padding: 0;
     margin: 0;
@@ -9,17 +11,28 @@
     width: 100%;
 }
 
-.section {
-    height: 80vh;
+.section-header {
+    height: 60vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     position: relative;
+    background-color: $colorSecondary;
+    color: $colorPrimary;
+
+    h3 {
+        font-size: 72px;
+        text-align: left;
+        line-height: .9;
+        padding: 20px;
+    }
+}
+
+.container {
+    background-color: $colorPrimary;
+    color: $colorSecondary;
 }
 
 p {
-    max-width: 480px;
+    // max-width: 480px;
     font-size: 48px;
 }

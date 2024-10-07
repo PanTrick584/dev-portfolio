@@ -2,59 +2,59 @@ import React, { useState, useEffect, useRef } from 'react';
 import './styles/sideroll.scss';
 
 interface ContentItem {
-    id: number;
-    text: string;
+	id: number;
+	text: string;
 }
 
 type TextsProps = {
-    texts: ContentItem[]
+	texts: ContentItem[];
 }
 
-const StickySectionSideroll: React.FC<TextsProps> = ({texts}) => {
-    const [currentPosition, setCurrentPosition] = useState<number>(0);
-    const sectionRef = useRef<HTMLDivElement | null>(null);
+const Sideroll: React.FC<TextsProps> = ({ texts }) => {
+	const [currentPosition, setCurrentPosition] = useState<number>(0);
+	const sectionRef = useRef<HTMLDivElement | null>(null);
+	const contentRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (sectionRef.current) {
-                const sectionTop = sectionRef.current.getBoundingClientRect().top;
-                const sectionHeight = sectionRef.current.clientHeight;
-                const scrollRatio = Math.min(Math.max(-sectionTop / sectionHeight, 0), 1);
-                const newIndex = Math.min(Math.floor(scrollRatio * texts.length), texts.length -1);
-                // console.log(scrollRatio);
-                // console.log(newIndex);
-                
-                setCurrentPosition(scrollRatio * (texts.length * 1000));
-            }
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () =>   window.removeEventListener('scroll', handleScroll);
-    }, [currentPosition]);
+	useEffect(() => {
+		const handleScroll = () => {
+			if (sectionRef.current && contentRef.current) {
+				const sectionTop = sectionRef.current.getBoundingClientRect().top;
+				const sectionHeight = sectionRef.current.offsetHeight;
+				const sectionWidth = sectionRef.current.clientWidth;
+				const contentWidth = contentRef.current.scrollWidth;
+				const scrollDistance = Math.max(contentWidth - sectionWidth, 0);
 
-    return (
-        <div
-            className={`sideroll-section`}
-            style={{height: `${texts.length * 2}00vh`}}
-            ref={sectionRef}
-        >
+				// Calculate scroll ratio, and clamp it between 0 and 1
+				const scrollRatio = Math.min(Math.max(-sectionTop / ((sectionHeight * .85) - window.innerHeight), 0), 1);
 
-            <div
-                className="content"
-                style={{transform: `translateX(-${currentPosition}px)`}}>
-                                <div
-                className="content-background"
-                style={{transform: `translateX(${currentPosition}px)`}}>
-            </div>
-                    {texts.map((item) => {
-                        return(
-                            <div className="content-item">
-                                <p>{item.text}</p>
-                            </div>
-                        )
-                    })}
-            </div>
-        </div>
-    );
+				// Set the current position based on scroll ratio and scroll distance
+				setCurrentPosition(scrollRatio * scrollDistance);
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [texts.length]);
+
+	return (
+		<div
+			className="sideroll-section"
+			style={{ height: `${texts.length * 100}vh` }}
+			ref={sectionRef}
+		>
+			<div
+				className="content"
+				ref={contentRef}
+				style={{ transform: `translateX(-${currentPosition}px)` }}
+			>
+				{texts.map((item, id) => (
+					<div className="content-item" key={`sidescroll-${id}`}>
+						<p>{item.text}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	);
 };
 
-export default StickySectionSideroll;
+export default Sideroll;

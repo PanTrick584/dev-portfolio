@@ -1,10 +1,14 @@
-import './styles/header.scss';
+import "./styles/header.scss";
 
-const Header = () => {
-    return(
-            <nav className='navigation'>
-                
-            </nav>
+type TextProps = {
+    texts: string[]
+}
+
+const Header: React.FC<TextProps> = ({ texts }) => {
+    return (
+        <section className='section section-header'>
+            <h3>{texts.map((text => <>{text}<br /></>))}</h3>
+        </section>
     )
 }
 
