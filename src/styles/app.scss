@@ -32,7 +32,11 @@
     color: $colorSecondary;
 }
 
+h3,
 p {
-    // max-width: 480px;
+    white-space: pre-line;
+}
+
+p {
     font-size: 48px;
 }
