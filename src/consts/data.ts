@@ -25,7 +25,7 @@ export const header_four = [
 
 export const header_five = [
     "Recent Works",
-    "with brands"
+    "for LPP and SilkyCoders"
 ]
 
 export const header_six = [

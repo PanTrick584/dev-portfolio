@@ -2,9 +2,14 @@
     height: 60vh;
 
     h3 {
-        font-size: 72px;
-        text-align: left;
-        line-height: .9;
+        // max-width: 85%;
         padding: 20px;
+        font-size: 56px;
+        line-height: .9;
+        text-align: left;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 72px;
+        }
     }
 }

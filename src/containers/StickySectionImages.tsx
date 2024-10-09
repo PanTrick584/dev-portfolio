@@ -21,7 +21,7 @@ const StickySectionImages: React.FC<ContentProps> = ({ content }) => {
                 const sectionHeight = sectionCarouselRef.current.clientHeight;
                 const scrollRatio = Math.min(Math.max(-sectionTop / (sectionHeight - window.innerHeight), 0), 1);
                 const newIndex = Math.min(Math.floor(scrollRatio * content.length), content.length - 1);
-                
+
                 if (newIndex !== currentIndex) {
                     setCurrentIndex(newIndex);
                     setSlideIn("");
@@ -34,7 +34,6 @@ const StickySectionImages: React.FC<ContentProps> = ({ content }) => {
                     }, 100);
                 }
             }
-
         };
 
         window.addEventListener('scroll', handleScroll);

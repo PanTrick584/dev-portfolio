@@ -7,8 +7,18 @@
     font-family: 'Bebas Neue', cursive;
 }
 
-#root {
-    width: 100%;
+body {
+    // max-width: 100vw;
+}
+
+// #root {
+//     max-width: 90vw;
+// }
+.container,
+.section,
+.section-header,
+.sideroll-section,
+.sticky-section {
 }
 
 .section-header {
@@ -30,11 +40,19 @@
 .container {
     background-color: $colorPrimary;
     color: $colorSecondary;
+    max-width: 100vw;
 }
 
 h3,
 p {
     white-space: pre-line;
+}
+
+h3,
+h4,
+p {
+    white-space: pre-line;
+    max-width: 85%;
 }
 
 p {
